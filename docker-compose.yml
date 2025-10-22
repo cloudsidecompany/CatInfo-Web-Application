@@ -1,0 +1,29 @@
+services:
+  backend:
+    image: selenepuzio/catinfo-backend:latest   # ? immagine su Docker Hub
+    container_name: catinfo-backend             # ? nome del container
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:catinfo
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    networks:
+      - catinfo-net
+
+  frontend:
+    image: selenepuzio/catinfo-frontend:latest  # ? immagine su Docker Hub
+    container_name: catinfo-frontend            # ? nome del container
+    ports:
+      - "8085:8085"
+    environment:
+      - BACKEND_URL=http://backend:8080
+    depends_on:
+      - backend
+    networks:
+      - catinfo-net
+
+networks:
+  catinfo-net:
+    driver: bridge
