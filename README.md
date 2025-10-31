@@ -152,8 +152,4 @@ public class CorsConfig {
 | `/api/breeds/{name}` | GET    | Dettagli di una razza specifica         |
 | `/api/breeds`        | POST   | Aggiunge una nuova razza (se abilitato) |
 
----
 
-
-
-Vuoi che lo adatti anche per **GitHub** (con badge, emoji e sezioni colorate tipo “Getting Started”, “Contributing”, ecc.) oppure vuoi mantenerlo **più semplice e pulito per consegna interna**?
